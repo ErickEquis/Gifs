@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center">
+
+  <!--
+    '[]' permite decir que un atributo HTML sera tratado por Angular.
+    Atributos son recibidos de componente padre (gifs-card)
+    (load) evento que dice cuando se cargo por completo una imagen.
+    [ngStyle] similar [ngClass]
+  -->
+  <img
+    [src]="url"
+    [alt]="alt"
+    class="card-img-top animate__animated animate__fadeIn"
+    (load)="onLoad()"
+    [ngStyle]="{display : hasLoaded ? '' : 'none'}"
+  />
+
+  <img
+    *ngIf="!hasLoaded"
+    src="assets/loader.svg"
+    height="35"
+    width="35"
+    class="mt-3"
+  />
+
+</div>
